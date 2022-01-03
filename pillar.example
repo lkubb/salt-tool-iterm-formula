@@ -1,0 +1,25 @@
+tool:
+  users:
+    user:
+      xdg: true         # force xdg dirs
+      dotconfig: true   # sync this user's config from a dotfiles repo available as salt://dotconfig/<user>/iterm or salt://dotconfig/iterm
+      iterm:
+        profiles:
+        # make the following profiles available as dynamic profiles. can be specified in tool:iterm:users:<user>:iterm:profiles as well
+          - Name: ChildDynamic
+            Guid: DF0FB47A-53AB-423B-966D-B05335BB6459
+            Dynamic Profile Parent Name: DefaultDynamic
+            Scrollback Lines: 6000
+            Mouse Reporting: true
+  iterm:
+    defaults:
+      profiles:
+        - Name: DefaultDynamic
+          # it is recommended to specify a static Guid (run `uuidgen`), but this formula automatically generates one in case you did not
+          Guid: 9EA96048-7FB6-43D0-A675-AAC0DE3AFC15
+          Left Option Key Changeable: true
+          Option Key Sends: 2
+          Scrollback Lines: 1000
+          Terminal Type: xterm-256color
+          Visual Bell: true
+          Normal Font: FiraCodeNerdFontComplete-Retina 11
