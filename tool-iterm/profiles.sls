@@ -14,6 +14,8 @@ iTerm2 dynamic profile {{ profile.Name }} is synced for user '{{ user.name }}':
     - user: {{ user.name }}
     - group: {{ user.group }}
     - mode: '0600'
+    - dir_mode: '0700'
+    - makedirs: true
     - require:
       - iTerm2 is installed
   {%- endfor %}
