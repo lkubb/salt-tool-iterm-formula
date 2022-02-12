@@ -45,8 +45,13 @@ tool:
 The following shows an example of `tool-iterm` pillar configuration. Namespace it to `tool:users` and/or `tool:iterm:users`.
 ```yaml
 user:
-  xdg: true        # force xdg dirs
-  dotconfig: true  # sync this user's config from a dotfiles repo available as salt://dotconfig/<user>/iterm or salt://dotconfig/iterm
+  xdg: true               # force xdg dirs
+  # sync this user's config from a dotfiles repo available as
+  # salt://dotconfig/<user>/iterm or salt://dotconfig/iterm
+  dotconfig:              # can be bool or mapping
+    file_mode: '0600'     # default: keep destination or salt umask (new)
+    dir_mode: '0700'      # default: 0700
+    clean: false          # delete files in target. default: false
   iterm:
     profiles:
     # make the following profiles available as dynamic profiles
