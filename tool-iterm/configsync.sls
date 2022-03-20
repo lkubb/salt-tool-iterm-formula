@@ -10,7 +10,7 @@ iTerm2 dynamic profile configuration is synced for user '{{ user.name }}':
       - salt://dotconfig/{{ user.name }}/iterm2
       - salt://dotconfig/iterm2
     - context:
-        user: {{ user }}
+        user: {{ user | json }}
     - template: jinja
     - user: {{ user.name }}
     - group: {{ user.group }}
