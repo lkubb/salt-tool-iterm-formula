@@ -9,6 +9,7 @@
 include:
   - {{ sls_config_clean }}
 
+
 iTerm2 is removed:
   pkg.removed:
     - name: {{ iterm.lookup.pkg.name }}
