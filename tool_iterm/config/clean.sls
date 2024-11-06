@@ -1,7 +1,10 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{#-
+    Removes the configuration of the iTerm2 package.
+#}
+
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as iterm with context %}
 
 
@@ -9,5 +12,5 @@
 
 iTerm2 datadir is absent for user '{{ user.name }}':
   file.absent:
-    - name: {{ user['_iterm'].datadir }}
+    - name: {{ user["_iterm"].datadir }}
 {%- endfor %}
