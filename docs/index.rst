@@ -1,5 +1,5 @@
-Welcome to salt-tool-iterm-formula's documentation!
-===================================================
+Welcome to tool-iterm-formula's documentation!
+==============================================
 
 .. toctree::
    :maxdepth: 2

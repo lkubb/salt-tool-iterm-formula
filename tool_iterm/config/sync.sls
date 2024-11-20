@@ -2,7 +2,7 @@
 
 {%- set tplroot = tpldir.split("/")[0] %}
 {%- from tplroot ~ "/map.jinja" import mapdata as iterm with context %}
-{%- from tplroot ~ "/libtofs.jinja" import files_switch %}
+{%- from tplroot ~ "/libtofsstack.jinja" import files_switch %}
 
 
 {%- for user in iterm.users | selectattr("dotconfig", "defined") | selectattr("dotconfig") %}
@@ -12,10 +12,14 @@ iTerm2 dynamic profile configuration is synced for user '{{ user.name }}':
   file.recurse:
     - name: {{ user["_iterm"].datadir | path_join("DynamicProfiles") }}
     - source: {{ files_switch(
-                ["iterm2"],
-                default_files_switch=["id", "os_family"],
-                override_root="dotconfig",
-                opt_prefixes=[user.name]) }}
+                    ["iterm2"],
+                    lookup="iTerm2 configuration is synced for user '{}'".format(user.name),
+                    config=iterm,
+                    path_prefix="dotconfig",
+                    files_dir="",
+                    custom_data={"users": [user.name]},
+                 )
+              }}
     - context:
         user: {{ user | json }}
     - template: jinja

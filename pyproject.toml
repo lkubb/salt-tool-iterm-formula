@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "salt_tool_iterm"
+name = "tool_iterm_formula"
 version = "1.0.0"
 description = "Saltstack states to manage iTerm2"
 authors = ["lkubb"]
